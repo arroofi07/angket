@@ -16,6 +16,12 @@
 			minute: '2-digit'
 		}).format(date);
 	}
+
+	function getEmail(response: SurveyResponse): string {
+		const email = response.answers['email'];
+		if (!email || email === '') return '-';
+		return email as string;
+	}
 </script>
 
 <div class="overflow-hidden rounded-2xl border border-gray-700/50 bg-gray-800/50">
@@ -35,6 +41,7 @@
 						<th class="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase"
 							>Prodi/Fakultas</th
 						>
+						<th class="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">Email</th>
 						<th class="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">Waktu</th>
 					</tr>
 				</thead>
@@ -54,6 +61,18 @@
 							</td>
 							<td class="px-4 py-3 text-sm text-gray-300">
 								{response.answers['prodi'] || response.answers['fakultas'] || '-'}
+							</td>
+							<td class="px-4 py-3 text-sm">
+								{#if getEmail(response) !== '-'}
+									<a
+										href="mailto:{getEmail(response)}"
+										class="text-indigo-400 hover:text-indigo-300 hover:underline"
+									>
+										{getEmail(response)}
+									</a>
+								{:else}
+									<span class="text-gray-500">-</span>
+								{/if}
 							</td>
 							<td class="px-4 py-3 text-sm text-gray-400">
 								{formatDate(response.createdAt)}
