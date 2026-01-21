@@ -1,13 +1,10 @@
 import type { SurveyConfig } from '$lib/types/survey';
 
 export const FAKULTAS_OPTIONS = [
-	'Fakultas Teknologi Industri',
-	'Fakultas Teknik Sipil dan Perencanaan',
-	'Fakultas Ekonomi dan Bisnis',
 	'Fakultas Hukum',
 	'Fakultas Ilmu Budaya',
 	'Fakultas Keguruan dan Ilmu Pendidikan',
-	'Fakultas Farmasi',
+	'Fakultas Ekonomi',
 	'Lainnya'
 ];
 

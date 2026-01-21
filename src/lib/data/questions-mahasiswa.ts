@@ -1,20 +1,13 @@
 import type { SurveyConfig } from '$lib/types/survey';
 
 export const PRODI_OPTIONS = [
-	'Teknik Informatika',
-	'Sistem Informasi',
-	'Teknik Elektro',
-	'Teknik Sipil',
-	'Teknik Mesin',
-	'Teknik Industri',
-	'Arsitektur',
-	'Akuntansi',
-	'Manajemen',
-	'Ilmu Hukum',
-	'Ilmu Komunikasi',
-	'Psikologi',
-	'Farmasi',
-	'Pendidikan Guru',
+	'PTIK',
+	'PINDO',
+	'PPKN',
+	'PBIO',
+	'PGSD',
+	'PMAT',
+	'PING',
 	'Lainnya'
 ];
 
