@@ -8,13 +8,20 @@ import {
 	where,
 	orderBy,
 	Timestamp,
-	getCountFromServer
+	getCountFromServer,
+	deleteDoc
 } from 'firebase/firestore';
 import { getDb } from './config';
 import type { SurveyResponse, BetaTester, SurveyStats } from '$lib/types/survey';
 
 const RESPONSES_COLLECTION = 'responses';
 const BETA_TESTERS_COLLECTION = 'beta_testers';
+
+// Delete a survey response
+export async function deleteResponse(id: string): Promise<void> {
+	const db = getDb();
+	await deleteDoc(doc(db, RESPONSES_COLLECTION, id));
+}
 
 // Submit a survey response
 export async function submitSurveyResponse(

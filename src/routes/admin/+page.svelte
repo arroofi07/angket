@@ -4,7 +4,7 @@
 	import StatCard from '$lib/components/admin/StatCard.svelte';
 	import Chart from '$lib/components/admin/Chart.svelte';
 	import DataTable from '$lib/components/admin/DataTable.svelte';
-	import { getAllResponses, getSurveyStats } from '$lib/firebase/firestore';
+	import { getAllResponses, getSurveyStats, deleteResponse } from '$lib/firebase/firestore';
 	import type { SurveyResponse, SurveyStats } from '$lib/types/survey';
 
 	let isAuthenticated = $state(false);
@@ -38,6 +38,18 @@
 			error = 'Gagal memuat data. Pastikan Firebase sudah dikonfigurasi.';
 		} finally {
 			isLoading = false;
+		}
+	}
+
+	async function handleDelete(id: string) {
+		if (!confirm('Apakah Anda yakin ingin menghapus data ini?')) return;
+
+		try {
+			await deleteResponse(id);
+			await loadData();
+		} catch (err) {
+			console.error('Error deleting response:', err);
+			alert('Gagal menghapus data');
 		}
 	}
 
@@ -257,7 +269,7 @@
 				</div>
 
 				<!-- Recent Responses Table -->
-				<DataTable {responses} />
+				<DataTable {responses} onDelete={handleDelete} />
 			{/if}
 		</div>
 	</div>
