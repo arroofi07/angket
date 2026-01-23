@@ -69,7 +69,7 @@
 			return;
 		}
 
-		const email = (answers['email'] as string)?.toLowerCase().trim();
+		const email = (answers['email'] as string || '').toLowerCase().trim();
 
 		// Validate email format
 		if (email && !isValidEmail(email)) {
@@ -92,17 +92,24 @@
 				}
 			}
 
-			// Normalize email in answers
+			// Normalize answers
 			const normalizedAnswers = { ...answers };
 			if (email) {
 				normalizedAnswers['email'] = email;
 			}
 
-			// Submit survey response
-			await submitSurveyResponse({
+			// Prepare submission data
+			const submissionData: any = {
 				respondentType: 'mahasiswa',
 				answers: normalizedAnswers
-			});
+			};
+
+			if (email) {
+				submissionData.email = email;
+			}
+
+			// Submit survey response
+			await submitSurveyResponse(submissionData);
 
 			// Add beta tester if email provided
 			if (email) {
