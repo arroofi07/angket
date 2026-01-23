@@ -43,7 +43,7 @@ export const mahasiswaSurvey: SurveyConfig = {
 				},
 				{
 					id: 'ipk',
-					text: 'IPK Terakhir (Opsional)',
+					text: 'IPK Terakhir ',
 					type: 'radio',
 					options: ['< 2.5', '2.5 - 3.0', '3.0 - 3.5', '> 3.5', 'Belum ada IPK'],
 					required: false
@@ -168,7 +168,7 @@ export const mahasiswaSurvey: SurveyConfig = {
 				},
 				{
 					id: 'email',
-					text: 'Masukkan email Anda jika ingin menjadi beta-tester sistem ini (opsional)',
+					text: 'Masukkan email Anda jika ingin menjadi beta-tester sistem ini ',
 					type: 'email',
 					placeholder: 'contoh@email.com',
 					required: false
