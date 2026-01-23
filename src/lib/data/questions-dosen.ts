@@ -123,13 +123,6 @@ export const dosenSurvey: SurveyConfig = {
 					required: true
 				},
 				{
-					id: 'saran',
-					text: 'Saran untuk pengembangan sistem Asisten Kampus ',
-					type: 'textarea',
-					placeholder: 'Tuliskan saran Anda di sini...',
-					required: false
-				},
-				{
 					id: 'email',
 					text: 'Masukkan email Anda jika ingin dihubungi untuk diskusi lebih lanjut',
 					type: 'email',
