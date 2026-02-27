@@ -44,30 +44,7 @@
 
 	<div>
 		{#if isLastStep}
-			<Button onclick={onSubmit} disabled={!canGoNext || isSubmitting}>
-				{#if isSubmitting}
-					<svg class="mr-3 -ml-1 h-5 w-5 animate-spin text-white" fill="none" viewBox="0 0 24 24">
-						<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"
-						></circle>
-						<path
-							class="opacity-75"
-							fill="currentColor"
-							d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-						></path>
-					</svg>
-					Mengirim...
-				{:else}
-					Kirim Jawaban
-					<svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M5 13l4 4L19 7"
-						/>
-					</svg>
-				{/if}
-			</Button>
+			<Button onclick={onSubmit} disabled={true}>Survei Ditutup</Button>
 		{:else}
 			<Button onclick={onNext} disabled={!canGoNext}>
 				Selanjutnya
